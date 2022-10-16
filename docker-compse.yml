@@ -20,6 +20,8 @@ services:
       - 'traefik.http.routers.nightscout.entrypoints=websecure'
       - 'traefik.http.routers.nightscout.tls.certresolver=le'
     env_file: nightscout.env
+    environment:
+      API_SECRET: $SECRET
 
   traefik:
     image: traefik:latest
