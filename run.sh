@@ -5,6 +5,8 @@ service ufw stop
 mkdir -p $HOME/nightscout
 cd $HOME/nightscout
 if [-f ".env"]; then
+        echo "\n\nDie informationen aus $HOME/nightscout/.env wedern verwendet:"
+else
         echo "\nGeben Sie die DNS-Namen des Servers ein:"
         read HOST
 
@@ -19,8 +21,6 @@ if [-f ".env"]; then
         echo "SECRET=$SECRET" >> .env
 
         echo "\n\nDie eingegebenen informationen wurden nach $HOME/nightscout/.env geschrieben:"
-else
-        echo "\n\nDie informationen aus $HOME/nightscout/.env wedern verwendet:"
 fi
 
 echo "\n****************************\n"
