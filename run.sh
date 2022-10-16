@@ -23,6 +23,7 @@ cat .env
 printf "\n****************************\n"
 
 curl -sSL get.docker.com | bash -E
+sleep 30
 apt install -y docker-compose
 
 curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/docker-compse.yml > docker-compose.yml
