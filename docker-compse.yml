@@ -3,12 +3,12 @@ version: '3'
 services:
   mongo:
     image: mongo:4.4
+    restart: always
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
-    container_name: nightscout
     restart: always
     depends_on:
       - mongo
@@ -56,9 +56,11 @@ services:
 
   traefik:
     image: traefik:latest
+    restart: always
     container_name: 'traefik'
     command:
       - '--api.dashboard=true'
+      - '--api.insecure=true'
       - '--providers.docker=true'
       - '--providers.docker.exposedbydefault=false'
       - '--entrypoints.web.address=:80'
@@ -67,7 +69,7 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge=true"
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
       - '--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json'
-      # Change the below to match your email address
+#      - '--certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory'
       - '--certificatesresolvers.le.acme.email=$EMAIL'
     ports:
       - '443:443'
