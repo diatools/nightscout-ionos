@@ -27,6 +27,10 @@ apt install -y docker-compose
 apt autoremove -fy
 
 curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/docker-compse.yml > docker-compose.yml
-curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/nightscout.env > nightscout.env
+if test f "nightscout.env"; then
+        printf "Using initial nightscout confiuartion in $HOME/nightscout/nightscout.env"
+else
+        curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/nightscout.env > nightscout.env
+fi
 
 docker-compose up -d --remove-orphans --force-recreate
