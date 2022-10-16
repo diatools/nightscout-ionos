@@ -32,4 +32,4 @@ apt install -y docker-compose
 
 curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/docker-compse.yml > docker-compose.yml
 
-docker-compose up -d --remove-orphans
+docker-compose up -d --remove-orphans --force-recreate
