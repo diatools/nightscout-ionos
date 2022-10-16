@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 curl -sSL get.docker.com | bash -E
+apt install -y docker-compose
 
 mkdir -p $HOME/nightscout
 cd $HOME/nightscout
