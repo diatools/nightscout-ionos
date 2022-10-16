@@ -27,7 +27,7 @@ apt install -y docker-compose
 apt autoremove -fy
 
 curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/docker-compse.yml > docker-compose.yml
-if test f "nightscout.env"; then
+if test -f "nightscout.env"; then
         printf "Using initial nightscout confiuartion in $HOME/nightscout/nightscout.env"
 else
         curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/nightscout.env > nightscout.env
