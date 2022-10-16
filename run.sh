@@ -18,14 +18,15 @@ fi
 
 printf "\n****************************\n"
 cat .env
-printf "\n****************************\n"
+printf "****************************\n\n"
 
-curl -sSL get.docker.com | bash -E
+curl -sSL get.docker.com | bash
+service docker start
 apt upgrade -y
-apt autoremove -fy
-sleep 30
 apt install -y docker-compose
+apt autoremove -fy
 
 curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/docker-compse.yml > docker-compose.yml
+curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/nightscout.env > nightscout.env
 
 docker-compose up -d --remove-orphans --force-recreate
