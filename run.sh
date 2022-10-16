@@ -8,13 +8,13 @@ if test -f ".env"; then
         echo "\n\nDie informationen aus $HOME/nightscout/.env wedern verwendet:"
 else
         echo "\nGeben Sie die DNS-Namen des Servers ein:"
-        read HOST
+        read HOST </dev/tty
 
         echo "\nGeben Sie Ihre E-Mail Adresse ein:"
-        read EMAIL
+        read EMAIL </dev/tty
 
         echo "\nLegen Sie ein Passwort (API-Secret) für Nightsout fest:"
-        read SECRET
+        read SECRET </dev/tty
 
         echo "HOST=$HOST" > .env
         echo "EMAIL=$EMAIL" >> .env
