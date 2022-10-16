@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 service ufw stop
 
 mkdir -p $HOME/nightscout
 cd $HOME/nightscout
-if [-f ".env"]; then
+if test -f ".env"; then
         echo "\n\nDie informationen aus $HOME/nightscout/.env wedern verwendet:"
 else
         echo "\nGeben Sie die DNS-Namen des Servers ein:"
