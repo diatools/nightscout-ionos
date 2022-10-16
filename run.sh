@@ -5,27 +5,22 @@ service ufw stop
 mkdir -p $HOME/nightscout
 cd $HOME/nightscout
 if test -f ".env"; then
-        echo "\n\nDie informationen aus $HOME/nightscout/.env wedern verwendet:"
+        printf "\n\nDie informationen aus $HOME/nightscout/.env wedern verwendet:"
 else
-        echo "\nGeben Sie die DNS-Namen des Servers ein:"
-        read -i HOST </dev/tty
-
-        echo "\nGeben Sie Ihre E-Mail Adresse ein:"
-        read -i EMAIL </dev/tty
-
-        echo "\nLegen Sie ein Passwort (API-Secret) für Nightsout fest:"
-        read -i SECRET </dev/tty
+        read -p "Geben Sie den DNS-Namen ein: " HOST < /dev/tty
+        read -p "Geben Sie ihre E-Mail ein: " EMAIL < /dev/tty
+        read -p "Legen Sie ein Passwort (API-Secret) für Nightscout fest: " SECRET < /dev/tty
 
         echo "HOST=$HOST" > .env
         echo "EMAIL=$EMAIL" >> .env
         echo "SECRET=$SECRET" >> .env
 
-        echo "\n\nDie eingegebenen informationen wurden nach $HOME/nightscout/.env geschrieben:"
+        printf "\n\nDie eingegebenen informationen wurden nach $HOME/nightscout/.env geschrieben:"
 fi
 
-echo "\n****************************\n"
+printf "\n****************************\n"
 cat .env
-echo "\n****************************\n"
+printf "\n****************************\n"
 
 curl -sSL get.docker.com | bash -E
 apt install -y docker-compose
