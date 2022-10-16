@@ -4,7 +4,7 @@ IONOS ist der 1&1 Hosting anbieter. Nightscout kann für 2 € pro Monat bzw. 24
 
 ## Vertragsabschluss bei 1&1 IONOS
 
-Unter https://www.ionos.de/server/vps#tarife einen passenden Tarif auswählen und abschließen. 
+Unter <a href="https://www.ionos.de/server/vps#tarife" target="_blank">https://www.ionos.de/server/vps#tarife</a> einen passenden Tarif auswählen und abschließen. 
 
 > **VPS S** <br>
 > 1 vCore CPU <br>
@@ -24,7 +24,7 @@ Wenn man sich auf 12 Monate an IONOS bindet, dann gibt es in der Regel große Ra
 
 ## Server einrichten
 
-1. Login unter https://mein.ionos.de/
+1. Login unter <a href="https://mein.ionos.de/" target="_blank">https://mein.ionos.de/</a>
 2. `Server & Cloud` im Menü auswählen
 3. Wählen Sie den Server in der Liste aus (suchen Sie nach dem Eintrag `Cloud Server 0`)
 4. Notieren Sie aus der Übrsicht den `DNS-Hostname` und `Initial-Passwort` (Passwort anzeigen)
