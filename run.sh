@@ -1,7 +1,5 @@
 #!/bin/bash
 
-service ufw stop
-
 mkdir -p $HOME/nightscout
 cd $HOME/nightscout
 if test -f ".env"; then
@@ -23,6 +21,8 @@ cat .env
 printf "\n****************************\n"
 
 curl -sSL get.docker.com | bash -E
+apt upgrade -y
+apt autoremove -f
 sleep 30
 apt install -y docker-compose
 
