@@ -5,6 +5,6 @@ apt install -y docker-compose
 
 mkdir -p $HOME/nightscout
 cd $HOME/nightscout
-curl -sSL https://raw.githubusercontent.com/nightscout/cgm-remote-monitor/master/docker-compose.yml >> docker-compose.yml
+curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/docker-compse.yml
 
 docker-compose up -d --remove-orphans
