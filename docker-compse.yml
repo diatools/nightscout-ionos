@@ -4,12 +4,14 @@ services:
   mongo:
     image: mongo:4.4
     restart: always
+    container_name: 'mongo'
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
     restart: always
+    container_name: 'nightscout'
     depends_on:
       - mongo
     labels:
