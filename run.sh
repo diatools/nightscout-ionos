@@ -22,7 +22,7 @@ printf "\n****************************\n"
 
 curl -sSL get.docker.com | bash -E
 apt upgrade -y
-apt autoremove -f
+apt autoremove -fy
 sleep 30
 apt install -y docker-compose
 
