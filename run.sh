@@ -1,7 +1,15 @@
 #!/bin/bash
 
-mkdir -p $HOME/nightscout
-cd $HOME/nightscout
+cd $HOME
+
+if test -f "nightscout"; then
+        cd nightscout
+        git pull
+else
+        git clone https://github.com/diatools/nightscout-ionos.git nightscout
+        cd nightscout
+fi
+
 if test -f ".env"; then
         printf "\n\nDie informationen aus $HOME/nightscout/.env wedern verwendet:"
 else
@@ -22,15 +30,9 @@ printf "****************************\n\n"
 
 curl -sSL get.docker.com | bash
 service docker start
+
 apt upgrade -y
 apt install -y docker-compose
 apt autoremove -fy
-
-curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/docker-compse.yml > docker-compose.yml
-if test -f "nightscout.env"; then
-        printf "Using initial nightscout confiuartion in $HOME/nightscout/nightscout.env\n\n"
-else
-        curl -sSL https://raw.githubusercontent.com/diatools/nightscout-ionos/main/nightscout.env > nightscout.env
-fi
 
 docker-compose up -d --remove-orphans --force-recreate
