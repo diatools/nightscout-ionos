@@ -2,7 +2,7 @@
 
 cd $HOME
 
-if test -f "nightscout"; then
+if test -d "nightscout"; then
         cd nightscout
         git pull
 else
